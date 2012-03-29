@@ -85,12 +85,12 @@ has password => (
 
 
 has pintos => (
-    is         => 'ro',
     isa        => ArrayRef['Pinto | Pinto::Remote'],
     init_arg   => undef,
-    auto_deref => 1,
     lazy       => 1,
     builder    => '_build_pintos',
+    traits     => ['Array'],
+    handles    => { pintos => 'elements' },
 );
 
 #------------------------------------------------------------------------------
